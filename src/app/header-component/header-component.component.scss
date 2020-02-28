@@ -1,0 +1,198 @@
+@import url('../reset.scss');
+.header-bar{
+    align-items: center;
+    color: white;
+    display: flex;
+    height: 110px;
+    box-shadow: inset 0px 110px 22px -23px rgba(0,0,0,0.35);    
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+
+    .header-title{
+        h1{
+            font-size: 25px;
+            margin-left: 133px;
+        }
+    }
+
+    .header-menu{
+        color: white;
+        display: flex;
+        font-size: 15px;
+        margin-left: auto;
+        margin-right: 125px;
+        li{
+            margin-left: 50px;
+            a{
+                line-height: 25px;
+            }
+        }
+    }
+
+    &.solid-background{
+        background-color: rgba(0,0,0,0.90);
+    }
+}
+
+.header-content{
+    background-image: url(../assets/images/pope.png);
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    height: 740px;
+    .clossing-date{
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white;
+        line-height: 12px;
+        font-size: 12px;
+        height: 12px;
+        margin-top: auto;
+        padding: 19px 5px;
+        text-align: end;
+        width: 33%;
+    }
+    .clossing-days{
+        background: linear-gradient(to bottom left, rgba(255, 255, 255, 0.4) 80%, rgba(0, 0, 0, 0.2) 51%), linear-gradient(to top left, rgba(255, 255, 255, 0.4) 80%, rgba(0, 0, 0, 0.2) 51%);
+        background-repeat:no-repeat;
+        background-position:0 0,0 100%,100% 0,100% 100%;
+        background-size:100% 50%;
+        color: #464646;
+        margin-top: auto; height: 100%;
+        width: 2%; 
+    }
+
+    .header-footer{
+        display: flex; 
+        height: 50px;
+        margin-top: auto; 
+        width: 100%; 
+    }
+}
+
+.header-info{
+    position: relative;
+    top: 160px;
+    margin-left: 133px;
+    .info-box{
+        backdrop-filter:blur(30px);
+        background: rgba(#000,0.2);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        padding: 35px;
+        width: 430px;
+        h1{
+            font-size: 55px; 
+            font-weight: 900;
+        }
+        .wikipedia{
+            &:before{    
+                background-image: url('../assets/icons/wiki.svg');        
+                background-size: cover;
+                content: ' ';
+                display: inline-flex;
+                height: 20px;
+                margin: auto 3px auto 0px;
+                position: relative;
+                vertical-align: -25%;
+                width: 18px;
+            }
+        }
+    }
+    .vote-button{
+        border: none;
+        cursor: pointer;
+        height: 80px;
+        width: 250px;
+        &:before{            
+            background-size: cover;
+            content: ' ';
+            display: block;
+            height: 40px;
+            margin: auto;
+            width: 40px;
+        }
+        &:focus{
+            outline:0;
+        }
+        &.thumbs-up{
+            background-color: #2cbbb3;
+            &:before{
+                background-image: url('../assets/icons/thumb_up-24px.svg');
+            }
+        }        
+        &.thumbs-down{
+            background-color: #f6ad2c;
+            &:before{
+                background-image: url('../assets/icons/thumb_down-24px.svg');
+            }
+        }        
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header-content{
+        height: 500px;
+        .header-info{
+            margin-top: auto;
+            margin-left: 0px;
+            position: unset;
+            .info-box{
+                backdrop-filter: unset;
+                background-color: unset;
+                height: 79px;
+                text-shadow: 2px 1px 1px black;
+                overflow: hidden;
+                width: calc( 100% - 70px );
+                h1{
+                    font-size: 50px;
+                }
+                p, a, span{
+                    display: none;
+                }
+            }
+            .vote-button{
+                width: 50%;
+            }
+        }
+    
+        .header-footer{
+            display: none;
+        }
+    }
+
+    .header-bar{
+        .header-title{
+            margin: auto;
+            h1{
+                margin: 0px;
+            }
+        }
+        .header-menu{
+            display: none;
+        }
+    }
+    
+}
+
+@media only screen and (max-width: 630px) {
+    .header-content{
+        background-position-x: -120px;
+    }
+
+}
+
+@media only screen and (max-width: 360px) {
+    .header-content{
+        .header-info{
+            .info-box{
+                h1{
+                    font-size: 40px;
+                }
+            }
+        }
+    }    
+}
+

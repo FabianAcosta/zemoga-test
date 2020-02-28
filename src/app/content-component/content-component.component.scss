@@ -1,0 +1,272 @@
+.info-panel{
+    background-color: #EBEBEB;
+    color: #464646;
+    display: flex;
+    height: max-content;
+    margin: 30px 5% 0px 5%;
+    width: 90%;
+}
+
+.content-title{
+    font-size: 35px;
+    font-weight: 100;
+    margin: 30px 5% 30px 5%;
+}
+
+.feed-grid{
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fill,minmax(480px,1fr));
+    margin-left: 5%;
+    justify-content: start;
+    width: 90%;
+}
+
+.voting-card{
+    .card-content{
+        background-size: cover; 
+        box-shadow: inset 0px -200px 30px -23px rgba(0,0,0,0.35);  
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+        width: 100%;
+        .title-section{
+            display: flex;
+            flex-direction: row;
+            margin-top: auto;
+            .vote-button{
+                cursor: unset;
+                margin-top: auto;
+            }
+            h2{
+                color: white;
+                font-size: 43px;
+                line-height: 43px;
+                margin: auto 0px 0px 10px;
+            }
+        }
+
+        .category{
+            color: white;
+            font-size: 16px;
+            font-weight: 100;
+            margin: 5px auto 20px 47px;
+        }
+
+        .vote-section{
+            p{
+                color: white;
+                font-weight: 100;
+                margin: 0px auto 20px 47px;
+            }
+        }
+
+        .buttons-container{
+            display: flex;
+            margin: 0px auto 20px 37px;
+            button{
+                align-self: center;
+                margin-left: 10px;
+            }            
+        }
+
+        .vote-again-container{
+            color: white;
+            display: flex;
+            flex-direction: column;
+            margin: 0px auto 20px 47px;
+            span{
+                margin-bottom: 39px;
+            }
+        }
+
+    }
+
+    .vote-now-button{
+        background-color: transparent;
+        border: 2px solid #EBEBEB;
+        color: #EBEBEB;
+        cursor: pointer;
+        height: 40px;
+        &:focus{
+            outline:0;
+        }
+        &:active{
+            background-color: white;
+            color: black;                    
+
+        }
+    }
+
+    .percentage-bars{
+        color: white;
+        display: flex;
+        font-size: 23px;
+        .upvotes{
+            background-color: #2cbbb3;
+            display: flex;
+            height: 50px;
+            line-height: 50px;
+            &:before{
+                background-size: cover;
+                background-image: url('../assets/icons/thumb_up-24px.svg');
+                content: ' ';
+                display: block;
+                height: 30px;
+                margin: 10px 10px;
+                width: 30px;
+            }
+        }
+
+        .downvotes{
+            align-content: flex-end;
+            background-color: #f6ad2c; 
+            display: flex;
+            justify-content: flex-end;
+            height: 50px;
+            line-height: 50px;
+            &:after{
+                background-size: cover;
+                background-image: url('../assets/icons/thumb_up-24px.svg');
+                content: ' ';
+                display: block;
+                height: 30px;
+                margin: 10px 10px;
+                width: 30px;
+            }              
+        }
+    }
+}
+
+.submit-name{
+    background-image: url('../assets/images/crowd3.png');
+    background-size: 100%;
+    height: 80px;
+    color: #464646;
+    display: flex;
+    font-size: 28px;
+    margin: 30px 5% 0px 5%;
+    span{
+        margin: auto 0px auto 25px ;
+    }
+    button{
+        background-color: transparent;
+        border: 3px solid #464646;
+        color: #464646;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin: auto 25px auto auto ;
+        padding: 15px 40px;
+        &:focus{
+            outline:0;
+        }
+    }
+}
+
+.vote-button{
+    border: none;
+    cursor: pointer;
+    height: 38px;
+    width: 38px;
+    &:before{            
+        background-size: cover;
+        content: ' ';
+        display: block;
+        height: 20px;
+        margin: auto;
+        width: 20px;
+    }
+    &:focus{
+        outline:0;
+    }
+    &.thumbs-up{
+        background-color: #2cbbb3;
+        &:before{
+            background-image: url('../assets/icons/thumb_up-24px.svg');
+        }
+    }        
+    &.thumbs-down{
+        background-color: #f6ad2c;
+        &:before{
+            background-image: url('../assets/icons/thumb_down-24px.svg');
+        }
+    }   
+    &.selected{
+        border: 3px solid #EBEBEB;
+    }     
+}
+
+.dotted-line{
+    background-image: linear-gradient(to right, #979797 20%, rgba(255,255,255,0) 0%);
+    background-position: bottom;
+    background-size: 7px 2px;
+    background-repeat: repeat-x;
+    height: 3px;
+    margin: 40px auto;
+    width: 90%;
+}
+
+.footer{
+    display: flex;
+    margin: 0px 5% 30px 5%;
+    a, span{
+        color: #464646;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: lighter;
+        margin: auto 20px auto 0px;
+    }
+
+    .facebook{
+        &:after{
+            background-image: url('../assets/icons/facebook.svg');
+            background-size: cover;
+            content: ' ';
+            display: block;
+            height: 25px;
+            margin: auto;
+            width: 25px;
+        }
+    }
+
+    .twitter{
+        &:after{
+            background-image: url('../assets/icons/twitter.svg');
+            background-size: cover;
+            content: ' ';
+            display: block;
+            height: 25px;
+            margin: auto;
+            width: 25px;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .info-panel{
+        display: none;
+    }
+    .feed-grid{
+        grid-template-columns: repeat(auto-fill,minmax(100%,1fr));
+        margin: 0px;
+        width: 100%;
+    }
+    .submit-name{
+        span{
+            display: none;
+        }
+        button{
+            margin: auto;
+        }
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .footer{
+        span{
+            display: none;
+        }
+    }
+
+}

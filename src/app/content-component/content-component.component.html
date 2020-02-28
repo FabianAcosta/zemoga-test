@@ -1,0 +1,50 @@
+<div class="info-panel" *ngIf="showPanel">
+    <div style="display: flex; width: max-content; flex-direction: column;">
+        <span style="font-size: 20px; margin: 25px 0px 0px 28px; line-height: 20px; width: max-content;">Speak out. Be heard.</span>
+        <span style="font-size: 36px; margin: 0px 0px 25px 28px; font-weight: 900; line-height: 36px; width: max-content;">Be counted</span>
+    </div>
+    <p style="margin: auto 28px auto 25px; font-size: 15px; font-weight: 100;">Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can speak out and speak freely. It’s easy: You share your opinion, we analyze and put the data in a public report.</p>
+    <a (click)="showPanel = false" style="margin: auto 25px auto auto; font-size: 20px; cursor: pointer;">X</a>
+</div>
+<h2 class="content-title">Votes</h2>
+<div class="feed-grid">
+    <div *ngFor="let item of votings; let i = index" class="voting-card">
+        <div class="card-content"  [style.background-image]="'url(./app/assets/images/'+item.image+')'">
+            <div class="title-section">
+                <button class="vote-button" [ngClass]="item.upVotes > item.downVotes ? 'thumbs-up':'thumbs-down'"></button>                
+                <h2>{{item.name}}</h2>
+                
+            </div>
+            <p class="category"><strong>{{item.creationDate | dateAgo}} </strong>in {{item.category}}</p>
+            <div class="vote-section" *ngIf="currentVotes[i] != 'done'">
+                <p>{{item.description}}</p>
+                <div class="buttons-container">
+                    <button class="vote-button thumbs-up" (click)="setVote(i, 'up')" [ngClass]="{'selected': currentVotes[i] == 'up'}"></button>
+                    <button class="vote-button thumbs-down" (click)="setVote(i, 'down')" [ngClass]="{'selected': currentVotes[i] == 'down'}"></button>
+                    <button class="vote-now-button" (click)='submitVote(i)'> Vote now</button>
+                </div>
+            </div>
+            <div class="vote-again-container" *ngIf="currentVotes[i] == 'done'">
+                <span>Thank you for voting!</span>
+                <button class="vote-now-button" (click)='voteAgain(i)'> Vote again</button>
+            </div>
+        </div>
+        <div class="percentage-bars">
+            <div class="upvotes" [style.width]="((item.upVotes/item.totalVotes)*100)+'%'" >{{(item.upVotes/item.totalVotes)*100 | number:'1.0-1'}}%</div>
+            <div class="downvotes" [style.width]="((item.downVotes/item.totalVotes)*100)+'%'">{{(item.downVotes/item.totalVotes)*100 | number:'1.0-1'}}%</div>
+        </div>
+    </div>
+</div>
+<div class="submit-name">
+    <span>Is there anyone else you would want us to add?</span>
+    <button>Submit a Name</button>
+</div>
+<div class="dotted-line"></div>
+<div class="footer">
+    <a>Terms and Conditions</a>
+    <a>Privacy Policy</a>
+    <a>Contact Us</a>
+    <span style="margin-left: auto;">Follow Us</span>
+    <a class="facebook"></a>
+    <a class="twitter"style="margin-right: 0px"></a>
+</div>
